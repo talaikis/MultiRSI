@@ -1,4 +1,4 @@
-#property version "1.0"
+#property version "2.2"
 #property copyright "Copyright ? 2014-2016, Quantrade Corp."
 #property link      "http: //quantrade.co.uk"
 
@@ -25,9 +25,6 @@ extern bool WildersRSI = false;
 extern bool CutlerRSI  = false;
 extern bool HarrisRSI  = false;
 extern bool RSIIndex   = true;
-
-string      email   = "";
-string      licence = "";
 
 double Buf_0[];
 double RSI[];
@@ -124,14 +121,10 @@ int start()
 
                 if (rs1 != 0 && rs2 != 0 && rs3 != 0)
                 {
-                    if (WildersRSI)
-                        RSI[i] = (100 - 100 / rs1);
-                    if (CutlerRSI)
-                        CUTLER[i] = (100 - 100 / rs2);
-                    if (HarrisRSI)
-                        HARRIS[i] = (100 - 100 / rs3);
-                    if (RSIIndex)
-                        NDX[i] = ((100 - 100 / rs1) + (100 - 100 / rs2) + (100 - 100 / rs3)) / 3;
+                    if (WildersRSI) RSI[i] = (100 - 100 / rs1);
+                    if (CutlerRSI) CUTLER[i] = (100 - 100 / rs2);
+                    if (HarrisRSI) HARRIS[i] = (100 - 100 / rs3);
+                    if (RSIIndex) NDX[i] = ((100 - 100 / rs1) + (100 - 100 / rs2) + (100 - 100 / rs3)) / 3;
                 }
                 else
                 {
